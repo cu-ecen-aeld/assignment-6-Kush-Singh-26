@@ -2,6 +2,12 @@
 # Script to build image for qemu.
 # Author: Siddhant Jajoo.
 
+# Use python3.11 for Yocto Kirkstone compatibility (Fedora 44 ships Python 3.14 which is incompatible)
+PYTHON311_DIR=$(mktemp -d)
+ln -sf /usr/bin/python3.11 "${PYTHON311_DIR}/python3"
+export PATH="${PYTHON311_DIR}:${PATH}"
+echo "Using Python: $(python3 --version)"
+
 git submodule init
 git submodule sync
 git submodule update
