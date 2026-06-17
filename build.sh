@@ -33,5 +33,8 @@ else
 	echo "meta-aesd layer already exists"
 fi
 
+# Clean stale bitbake server state from previous runs
+rm -f build/bitbake.lock build/bitbake.sock
+
 set -e
 bitbake core-image-aesd
