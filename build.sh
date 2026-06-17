@@ -33,5 +33,7 @@ else
 	echo "meta-aesd layer already exists"
 fi
 
+grep -q 'INHERIT.*rm_work' conf/local.conf 2>/dev/null || echo 'INHERIT += "rm_work"' >> conf/local.conf
+
 set -e
 bitbake core-image-aesd
