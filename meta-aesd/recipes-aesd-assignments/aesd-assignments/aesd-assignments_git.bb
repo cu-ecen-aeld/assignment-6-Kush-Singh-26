@@ -3,10 +3,11 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 inherit update-rc.d
 
-SRC_URI = "https://github.com/cu-ecen-aeld/assignments-3-and-later-Kush-Singh-26.git;branch=master"
+SRC_URI = "git://github.com/cu-ecen-aeld/assignments-3-and-later-Kush-Singh-26.git;branch=main;protocol=https"
+SRC_URI[sha256sum] = "64a53e1e89ed4c8bf5f4983778821880e0c87cc828baf3fd386f66ebb2a4749a"
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "1f99424"
+SRCREV = "1f9942428e68235c25b09aed2a43107baae8ee72"
 
 S = "${WORKDIR}/git/server"
 

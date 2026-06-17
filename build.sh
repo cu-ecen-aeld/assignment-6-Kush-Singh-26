@@ -2,12 +2,6 @@
 # Script to build image for qemu.
 # Author: Siddhant Jajoo.
 
-# Use python3.11 for Yocto Kirkstone compatibility (Fedora 44 ships Python 3.14 which is incompatible)
-PYTHON311_DIR=$(mktemp -d)
-ln -sf /usr/bin/python3.11 "${PYTHON311_DIR}/python3"
-export PATH="${PYTHON311_DIR}:${PATH}"
-echo "Using Python: $(python3 --version)"
-
 git submodule init
 git submodule sync
 git submodule update
@@ -38,8 +32,6 @@ if [ $layer_info -ne 0 ];then
 else
 	echo "meta-aesd layer already exists"
 fi
-
-grep -q 'INHERIT.*rm_work' conf/local.conf 2>/dev/null || echo 'INHERIT += "rm_work"' >> conf/local.conf
 
 set -e
 bitbake core-image-aesd
